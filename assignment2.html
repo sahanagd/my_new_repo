@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>
+OOJS + DOM
+</title>
+</head>
+<body>
+<div id="root">
+FirstName: <input type="text" id="firstName" /> <br>
+LastName: <input type="text" id="lastName" /> <br>
+Number Of Working days: <input type="text" class="nowd" /> <br>
+Salary: <input type="text" id="salary" /> <br>
+Net Salary: <input type="text" class="salary" /> <br>
+</div>
+<script>
+// create a class => Person (firstName, lastName, age)
+class person{
+    constructor(firstname ,lastname, age){
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.age=age;
+        
+    }
+}
+
+// create a class Employee <= Person (numberOfWorkingDays, salary)
+
+    class Employee extends person{
+        constructor(firstname,lastname,numberOfWorkingDays,salary){
+            super(firstname,lastname);
+            this.numberOfWorkingDays=numberOfWorkingDays;
+            this.salary=salary;
+        }
+    
+     }
+    // Add a function to Employee class => getSalary() => (salary / 30) * numberOfWorkingDays
+      getsalary(); {
+        return(this.salary/30)* this.numberOfWorkingDays;
+    }
+
+
+// create obj <= Employee (Jane, Doe, 25, 25000);
+const obj = new Employee(Jane, Doe, 25, 25000)
+
+// Assign the properties ir. firstName, lastName, numberOfWorkingDays, salary & output of getSalary(salary class)
+const firstname = document.getElementById("firstname");
+const lastname = document.getElementById("lastname");
+const nowd = document.getElementsByClassName("nowd");
+const salary =document.getElementById("salary")
+const netsalary = document.getElementsByClassName("salary")[0];
+
+// input => docuement,getElementById('firstName').value = '';
+firstname.value = "Jane";
+lastname.value = "Doe";
+nowd.value = 25;
+salary.value = 25000;
+console.log(obj.getsalary());
+netsalary.value = obj.getsalary().tostring();
+
+</script>
+</body>
+</html>
